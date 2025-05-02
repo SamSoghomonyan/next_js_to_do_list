@@ -17,7 +17,7 @@ export default function ToDo({ theme }: ToDoProps) {
   const [inputValue, setInputValue] = useState("");
   const [isDark, setIsDark] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const [perPage , setPerPage] = useState<number>(5);
+  const [perPage , setPerPage] = useState<number>(1);
 
   useEffect(() => {
     const storedTodos = localStorage.getItem("todos");
