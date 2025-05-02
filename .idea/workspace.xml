@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1e27e46-3979-4100-9fc0-60be3e2b27d0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/user/route.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/data.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/singltodo/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/todo/exmaple.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/todo/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/todo/themeFirst.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/todo/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/todo/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +17,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;SamSoghomonyan&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/SamSoghomonyan/next_js_to_do_list.git&quot;,
+    &quot;accountId&quot;: &quot;9f96b3f0-de89-477a-b050-18225fa22bda&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -43,7 +45,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/sam/Desktop/to_do_list&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/sam/Desktop/next&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -99,11 +101,17 @@
       <workItem from="1746003432339" duration="2353000" />
       <workItem from="1746012233179" duration="9123000" />
       <workItem from="1746084466329" duration="8292000" />
-      <workItem from="1746176927814" duration="2575000" />
+      <workItem from="1746176927814" duration="2991000" />
+      <workItem from="1746181433386" duration="1014000" />
+      <workItem from="1746182459482" duration="750000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="to_do_list" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>

@@ -17,7 +17,7 @@ export default function ToDo({ theme }: ToDoProps) {
   const [inputValue, setInputValue] = useState("");
   const [isDark, setIsDark] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const [perPage, setPerPage] = useState<number>(5);
+  const [perPage] = useState<number>(5);
 
   useEffect(() => {
     const storedTodos = localStorage.getItem("todos");
@@ -60,13 +60,13 @@ export default function ToDo({ theme }: ToDoProps) {
   const handlePrev = () => {
     if (currentPage > 0) {
       setCurrentPage(currentPage - 1)
-    };
+    }
   };
 
   const handleNext = () => {
     if (currentPage < totalPages - 1){
       setCurrentPage(currentPage + 1)
-    };
+    }
   };
 
   return (
