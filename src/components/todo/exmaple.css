@@ -116,3 +116,11 @@
         }
     }
 }
+
+@layer utilities {
+    @media (width: 430px) and (height: 932px){
+        button {
+            margin-left: 1rem;
+        }
+    }
+}
