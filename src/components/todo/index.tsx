@@ -72,8 +72,6 @@ export default function ToDo({ theme }: ToDoProps) {
   const handleInputPagine = (e:number) =>{
     if(e > 0) {
       setPerPage(e);
-    }else {
-      setPerPage(5)
     }
   }
   const handleNext = () => {
@@ -103,7 +101,12 @@ export default function ToDo({ theme }: ToDoProps) {
               </button>
             </div>
             <div>
-              <input type='number' onChange={(e)=>handleInputPagine(Number(e.target.value))} className="px-4 py-2 rounded w-full" />
+              <select onChange={(e) => handleInputPagine(Number(e.target.value))} className="px-4 py-2 rounded w-full">
+                <option value="1">1</option>
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="7">7</option>
+              </select>
             </div>
 
             <ul className="w-full max-w-md">
