@@ -10,7 +10,6 @@ interface ToDoProps {
 export default function ToDo({ theme }: ToDoProps) {
   type Todo = {
     text: string;
-    completed: boolean;
     time: string;
     id: number;
   };
@@ -42,7 +41,7 @@ export default function ToDo({ theme }: ToDoProps) {
 
   const handleAddClick = () => {
     if (inputValue.trim()) {
-      const newTodo = { text: inputValue, completed: false,  id: Math.random(), time: new Date().toLocaleTimeString() };
+      const newTodo = { text: inputValue, id: Math.random(), time: new Date().toLocaleTimeString() };
       let newTodos = [...todos];
 
       if (sorted) {

@@ -1,5 +1,5 @@
 type SingleTodoProps = {
-  item: { text: string; completed: boolean ,time: string ,id: number };
+  item: { text: string ,time: string ,id: number };
   index: number;
   handleRemoveClick: (id: number) => void;
   isDark: boolean;
@@ -10,9 +10,6 @@ export default function SingleTodo({ item, handleRemoveClick ,isDark }: SingleTo
     <div className={`${isDark ? "dark_mood dark text-white" : "light_mood text-black"}`} >
       <li
         className="flex justify-between items-center border-b py-2 dark:border-gray-600"
-        style={{
-          textDecoration: item.completed ? "line-through" : "none",
-        }}
       >
         <span>{item.text}</span>
         <span>{item.time}</span>
