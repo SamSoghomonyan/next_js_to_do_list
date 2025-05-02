@@ -1,0 +1,172 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+    --color-sky-100: oklch(0.951 0.026 236.824);
+    --color-sky-700: oklch(0.5 0.134 242.749);
+    --color-sky-950: oklch(0.293 0.066 243.157);
+    --color-gray-500: oklch(0.551 0.027 264.364);
+    --color-red-900: oklch(0.396 0.141 25.723);
+    --color-blue-500: oklch(0.623 0.214 259.815);
+    --color-blue-700: oklch(0.488 0.243 264.376);
+    --color-blue-950: oklch(0.282 0.091 267.935);
+
+}
+
+@layer base {
+    .firstTheme {
+            .light_mood {
+                background-color: var(--color-sky-100);
+                border-bottom: 1px solid var(--color-sky-700);
+
+                span {
+                    color: var(--color-sky-950);
+                }
+
+                input {
+                    border: 1px solid var(--color-sky-700);
+                }
+
+                button {
+                    color: var(--color-sky-700);
+                }
+            }
+            .dark_mood {
+                @variant dark {
+                    background-color: var(--color-blue-500);
+                    color: var(--color-blue-700);
+                    span {
+                        color: white;
+                    }
+
+                    input {
+                        border: 1px solid var(--color-blue-700);
+                    }
+
+                    button {
+                        color: var(--color-blue-950);
+                        cursor: pointer;
+                    }
+                }
+            }
+    }
+}
+
+/*@layer firstTheme {*/
+/*    .light_mood {*/
+/*        background-color: var(--color-sky-100);*/
+/*        border-bottom: 1px solid var(--color-sky-700);*/
+
+/*        span {*/
+/*            color: var(--color-sky-950);*/
+/*        }*/
+
+/*        input {*/
+/*            border: 1px solid var(--color-sky-700);*/
+/*        }*/
+
+/*        button {*/
+/*            color: var(--color-sky-700);*/
+/*        }*/
+/*    }*/
+/*    .dark_mood {*/
+/*        @variant dark {*/
+/*            background-color: var(--color-blue-500);*/
+/*            color: var(--color-blue-700);*/
+/*            span {*/
+/*                color: white;*/
+/*            }*/
+
+/*            input {*/
+/*                border: 1px solid var(--color-blue-700);*/
+/*            }*/
+
+/*            button {*/
+/*                color: var(--color-blue-950);*/
+/*                cursor: pointer;*/
+/*            }*/
+/*        }*/
+/*    }*/
+/*}*/
+
+
+/*@layer secondTheme {*/
+/*    .light_mood {*/
+/*        background-color: greenyellow;*/
+/*        border-bottom: 1px solid var(--color-sky-700);*/
+
+/*        span {*/
+/*            color: var(--color-sky-950);*/
+/*        }*/
+
+/*        input {*/
+/*            border: 1px solid var(--color-sky-700);*/
+/*        }*/
+
+/*        button {*/
+/*            color: var(--color-sky-700);*/
+/*        }*/
+/*    }*/
+/*    .dark_mood {*/
+/*        @variant dark {*/
+/*            background-color: chartreuse;*/
+/*            color: var(--color-blue-700);*/
+/*            span {*/
+/*                color: white;*/
+/*            }*/
+
+/*            input {*/
+/*                border: 1px solid var(--color-blue-700);*/
+/*            }*/
+
+/*            button {*/
+/*                color: var(--color-blue-950);*/
+/*                cursor: pointer;*/
+/*            }*/
+/*        }*/
+/*    }*/
+/*}*/
+/*@layer components {*/
+/*    .themeFirst {*/
+/*        .light_mood {*/
+/*            background-color: var(--color-sky-100);*/
+/*            border-bottom: 1px solid var(--color-sky-700);*/
+
+/*            span {*/
+/*                color: var(--color-sky-950);*/
+/*            }*/
+
+/*            input {*/
+/*                border: 1px solid var(--color-sky-700);*/
+/*            }*/
+
+/*            button {*/
+/*                color: var(--color-sky-700);*/
+/*            }*/
+/*        }*/
+
+/*        .themeFirst.dark_mood {*/
+/*            @variant dark {*/
+/*                background-color: var(--color-blue-500);*/
+/*                color: var(--color-blue-700);*/
+/*                span {*/
+/*                    color: var(--color-blue-950);*/
+/*                }*/
+
+/*                input {*/
+/*                    border: 1px solid var(--color-blue-700);*/
+/*                }*/
+
+/*                button {*/
+/*                    color: var(--color-blue-950);*/
+/*                    cursor: pointer;*/
+/*                }*/
+/*            }*/
+/*        }*/
+/*    }*/
+/*    .second.light_mood {*/
+/*        background-color: blue;*/
+/*    }*/
+/*    .third.light_mood {*/
+/*        background-color: red;*/
+/*    }*/
+/*}*/
