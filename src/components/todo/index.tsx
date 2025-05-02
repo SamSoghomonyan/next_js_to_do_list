@@ -17,7 +17,7 @@ export default function ToDo({ theme }: ToDoProps) {
   const [inputValue, setInputValue] = useState("");
   const [isDark, setIsDark] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const [perPage] = useState<number>(5);
+  const [perPage , setPerPage] = useState<number>(5);
 
   useEffect(() => {
     const storedTodos = localStorage.getItem("todos");
@@ -48,6 +48,13 @@ export default function ToDo({ theme }: ToDoProps) {
     }
   };
 
+  useEffect(() => {
+    console.log(perPage);
+    if(perPage > 0) {
+      const newTotalPages = Math.ceil(todos.length / perPage);
+      setCurrentPage(newTotalPages - 1);
+    }
+  }, [perPage]);
   const handleMood = () => {
     setIsDark(!isDark);
   };
@@ -62,7 +69,13 @@ export default function ToDo({ theme }: ToDoProps) {
       setCurrentPage(currentPage - 1)
     }
   };
-
+  const handleInputPagine = (e:number) =>{
+    if(e > 0) {
+      setPerPage(e);
+    }else {
+      setPerPage(5)
+    }
+  }
   const handleNext = () => {
     if (currentPage < totalPages - 1){
       setCurrentPage(currentPage + 1)
@@ -88,6 +101,9 @@ export default function ToDo({ theme }: ToDoProps) {
               <button onClick={handleAddClick} className="border px-4 py-2">
                 Add
               </button>
+            </div>
+            <div>
+              <input type='number' onChange={(e)=>handleInputPagine(Number(e.target.value))} className="px-4 py-2 rounded w-full" />
             </div>
 
             <ul className="w-full max-w-md">

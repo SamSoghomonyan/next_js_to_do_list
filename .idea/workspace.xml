@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1e27e46-3979-4100-9fc0-60be3e2b27d0" name="Changes" comment="">
+    <list default="true" id="a1e27e46-3979-4100-9fc0-60be3e2b27d0" name="Changes" comment="to-do">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/todo/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/todo/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,8 +102,17 @@
       <workItem from="1746084466329" duration="8292000" />
       <workItem from="1746176927814" duration="2991000" />
       <workItem from="1746181433386" duration="1014000" />
-      <workItem from="1746182459482" duration="750000" />
+      <workItem from="1746182459482" duration="3124000" />
     </task>
+    <task id="LOCAL-00001" summary="to-do">
+      <option name="closed" value="true" />
+      <created>1746183440499</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1746183440499</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,6 +120,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="to_do_list" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="to-do" />
+    <option name="LAST_COMMIT_MESSAGE" value="to-do" />
   </component>
 </project>
