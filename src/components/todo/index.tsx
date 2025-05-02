@@ -70,9 +70,7 @@ export default function ToDo({ theme }: ToDoProps) {
     }
   };
   const handleInputPagine = (e:number) =>{
-    if(e > 0) {
-      setPerPage(e);
-    }
+    setPerPage(e);
   }
   const handleNext = () => {
     if (currentPage < totalPages - 1){
