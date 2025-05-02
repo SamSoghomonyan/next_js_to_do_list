@@ -58,6 +58,7 @@
 
             button {
                 color: var(--color-green-800);
+                cursor: pointer;
             }
         }
         .dark_mood {
@@ -94,6 +95,7 @@
 
             button {
                 color: var(--color-indigo-900);
+                cursor: pointer;
             }
         }
         .dark_mood {

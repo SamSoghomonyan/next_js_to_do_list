@@ -1,11 +1,11 @@
 type SingleTodoProps = {
-  item: { text: string; completed: boolean };
+  item: { text: string; completed: boolean ,time: string ,id: number };
   index: number;
-  handleRemoveClick: (index: number) => void;
+  handleRemoveClick: (id: number) => void;
   isDark: boolean;
 };
 
-export default function SingleTodo({ item, index, handleRemoveClick ,isDark }: SingleTodoProps) {
+export default function SingleTodo({ item, handleRemoveClick ,isDark }: SingleTodoProps) {
   return (
     <div className={`${isDark ? "dark_mood dark text-white" : "light_mood text-black"}`} >
       <li
@@ -15,9 +15,10 @@ export default function SingleTodo({ item, index, handleRemoveClick ,isDark }: S
         }}
       >
         <span>{item.text}</span>
+        <span>{item.time}</span>
         <button
-          className="text-red-500"
-          onClick={() => handleRemoveClick(index)}
+          className="text-red-500 cursor-pointer "
+          onClick={() => handleRemoveClick(item.id)}
         >
           Delete
         </button>
