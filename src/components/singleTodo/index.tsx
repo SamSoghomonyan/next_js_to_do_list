@@ -1,19 +1,24 @@
+import Link from "next/link";
+
 type SingleTodoProps = {
   item: { text: string ,time: string ,id: number };
   handleRemoveClick: (id: number) => void;
   isDark: boolean;
 };
 
-export default function SingleTodo({ item, handleRemoveClick ,isDark }: SingleTodoProps) {
+export default function Todo({ item, handleRemoveClick ,isDark }: SingleTodoProps) {
   return (
     <div className={`${isDark ? "dark_mood dark text-white" : "light_mood text-black"}`} >
       <li
         className="flex justify-between items-center border-b py-2 dark:border-gray-600"
       >
-        <span>{item.text}</span>
+        <Link href={
+          {
+            pathname: `/todo/${item.id}`,
+          }
+        }>{item.text}</Link>
         <span>{item.time}</span>
         <button
-          className="text-red-500 cursor-pointer "
           onClick={() => handleRemoveClick(item.id)}
         >
           Delete

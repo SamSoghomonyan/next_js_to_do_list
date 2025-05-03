@@ -1,8 +1,8 @@
 "use client";
 import './style.css'
+import { useRouter } from 'next/navigation'
 import { useState, useEffect } from "react";
-import SingleTodo from '../singltodo'
-
+import Todo from '../singleTodo'
 interface ToDoProps {
   theme: string;
 }
@@ -22,7 +22,7 @@ export default function ToDo({ theme }: ToDoProps) {
   const [sorted , setSorted] = useState<boolean>(false);
 
   useEffect(() => {
-    const storedTodos = localStorage.getItem("todos");
+    const storedTodos = localStorage.getItem("todo");
     if (storedTodos) {
       const parsedTodos = JSON.parse(storedTodos);
       setTodos(parsedTodos);
@@ -31,25 +31,21 @@ export default function ToDo({ theme }: ToDoProps) {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
+    if (todos.length === 0) {
+      localStorage.removeItem("todo");
+    } else {
+      localStorage.setItem("todo", JSON.stringify(todos));
+    }
   }, [todos]);
-
   const totalPages = todos.length === 0 ? 0 : Math.ceil(todos.length / perPage);
   const lastPostIndex = (currentPage + 1) * perPage;
   const firstPostIndex = currentPage * perPage;
   const currentPost = todos.slice(firstPostIndex, lastPostIndex);
-
   const handleAddClick = () => {
     if (inputValue.trim()) {
       const newTodo = { text: inputValue, id: Math.random(), time: new Date().toLocaleTimeString() };
       let newTodos = [...todos];
-
-      if (sorted) {
-        newTodos.push(newTodo);
-      } else {
-        newTodos.unshift(newTodo);
-      }
-
+      sorted ? newTodos.push(newTodo) : newTodos.unshift(newTodo);
       setTodos(newTodos);
       setInputValue("");
       setCurrentPage(0)
@@ -60,16 +56,23 @@ export default function ToDo({ theme }: ToDoProps) {
   const handleMood = () => {
     setIsDark(!isDark);
   };
-
   const handleRemoveClick = (id: number) => {
-    const newTodos = todos.filter((todo) => todo.id !== id);
-    setTodos(newTodos);
-    const newTotalPages = newTodos.length === 0 ? 0 : Math.ceil(newTodos.length / perPage);
-    if (currentPage >= newTotalPages && currentPage > 0) {
-      setCurrentPage(currentPage - 1);
+    let text = ''
+    if (confirm("Press a button!")) {
+      text = "You pressed OK!";
+    } else {
+      text = "You pressed Cancel!";
+    }
+    console.log(text)
+    if(text == 'You pressed OK!'){
+      const newTodos = todos.filter((todo) => todo.id !== id);
+      const newTotalPages = newTodos.length === 0 ? 0 : Math.ceil(newTodos.length / perPage);
+      if (currentPage >= newTotalPages && currentPage > 0) {
+        setCurrentPage(currentPage - 1);
+      }
+      setTodos(newTodos);
     }
   };
-
   const handlePrev = () => {
     if (currentPage > 0) {
       setCurrentPage(currentPage - 1)
@@ -91,17 +94,22 @@ export default function ToDo({ theme }: ToDoProps) {
       setCurrentPage(currentPage + 1)
     }
   };
-
+  const handleFirstPage = () => {
+    setCurrentPage(0);
+  }
+  const handleLastPage = () => {
+    setCurrentPage(totalPages - 1);
+  }
   return (
     <div className={`${theme}`}>
       <div
-        className={`firstTheme ${isDark ? "dark_mood dark" : "light_mood"}`}
+        className={`${isDark ? "dark_mood dark" : "light_mood"}`}
       >
         <button onClick={handleMood}>
           {isDark ? "light mood" : "dark mood"}
         </button>
         <h1>TODO</h1>
-        <div className="flex justify-center min-h-screen  sm:h-screen sm:flex sm:justify-center sm:items-center  ">
+        <div className="flex justify-center min-h-screen  sm:h-screen sm:flex sm:justify-center sm:items-center">
           <div className="flex flex-col items-center gap-4 w-full px-2">
             <div className="flex gap-2 w-full max-w-md">
               <input
@@ -133,7 +141,7 @@ export default function ToDo({ theme }: ToDoProps) {
                 <li className="text-center text-gray-500 py-4">No todos yet</li>
               ) : (
                 currentPost.map((item) => (
-                  <SingleTodo
+                  <Todo
                     key={item.id}
                     item={item}
                     handleRemoveClick={handleRemoveClick}
@@ -144,6 +152,7 @@ export default function ToDo({ theme }: ToDoProps) {
             </ul>
 
             <div className="flex gap-2">
+              <button onClick={handleFirstPage} >first page</button>
               <button onClick={handlePrev} disabled={currentPage === 0}>
                 Previous
               </button>
@@ -151,6 +160,7 @@ export default function ToDo({ theme }: ToDoProps) {
               <button onClick={handleNext} disabled={currentPage >= totalPages - 1}>
                 Next
               </button>
+              <button onClick={handleLastPage} >last page</button>
             </div>
           </div>
         </div>
