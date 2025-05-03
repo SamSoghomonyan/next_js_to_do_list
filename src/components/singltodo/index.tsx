@@ -1,6 +1,5 @@
 type SingleTodoProps = {
   item: { text: string ,time: string ,id: number };
-  index: number;
   handleRemoveClick: (id: number) => void;
   isDark: boolean;
 };

@@ -132,11 +132,10 @@ export default function ToDo({ theme }: ToDoProps) {
               {currentPost.length === 0 ? (
                 <li className="text-center text-gray-500 py-4">No todos yet</li>
               ) : (
-                currentPost.map((item, index) => (
+                currentPost.map((item) => (
                   <SingleTodo
-                    key={firstPostIndex + index}
+                    key={item.id}
                     item={item}
-                    index={index}
                     handleRemoveClick={handleRemoveClick}
                     isDark={isDark}
                   />
