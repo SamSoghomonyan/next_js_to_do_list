@@ -25,6 +25,7 @@ export default function Todos({ theme }: ToDoProps) {
   const [group, setGroup] = useState<string>('');
   const [sorted, setSorted] = useState<boolean>(false);
   const [search,setSearch] = useState<string>('');
+  console.log('hdghg')
   useEffect(() => {
     const storedTodos = localStorage.getItem("todo");
     if (storedTodos) {
@@ -173,7 +174,7 @@ export default function Todos({ theme }: ToDoProps) {
             onChange={handleMood}
           />
           <div
-            className="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all bg-green-800 dark:border-gray-600 dark:bg-green-500"
+            className="relative w-11 h-6  rounded-full peer peer-focus:ring-4  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all bg-green-800 dark:border-gray-600 dark:bg-green-500"
           ></div>
         </label>
         <div className="flex justify-center pt-10 min-h-screen">
