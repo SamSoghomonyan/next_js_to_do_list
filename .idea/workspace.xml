@@ -5,13 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1e27e46-3979-4100-9fc0-60be3e2b27d0" name="Changes" comment="to-do">
-      <change afterPath="$PROJECT_DIR$/src/app/todo/[id]/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/todo/[id]/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/about/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/contact/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/todos/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PopUp/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/edited/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/header/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/singltodo/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/singleTodo/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/todo/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/todos/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/todo/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/todos/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/todo/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/todo/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/user/route.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/singleTodo/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/singleTodo/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/todos/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/todos/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/todos/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/todos/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +120,13 @@
       <workItem from="1746208591249" duration="6061000" />
       <workItem from="1746226451479" duration="322000" />
       <workItem from="1746252588447" duration="1516000" />
-      <workItem from="1746267904043" duration="12467000" />
+      <workItem from="1746267904043" duration="15774000" />
+      <workItem from="1746298631652" duration="4038000" />
+      <workItem from="1746351361445" duration="9904000" />
+      <workItem from="1746377881581" duration="7076000" />
+      <workItem from="1746429678294" duration="6000" />
+      <workItem from="1746430865388" duration="8721000" />
+      <workItem from="1746521324245" duration="1476000" />
     </task>
     <task id="LOCAL-00001" summary="to-do">
       <option name="closed" value="true" />
@@ -186,7 +200,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746252738225</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="to-do">
+      <option name="closed" value="true" />
+      <created>1746282564332</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1746282564333</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
