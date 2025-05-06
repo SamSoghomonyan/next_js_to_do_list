@@ -21,18 +21,28 @@ export default function Todos({ theme }: ToDoProps) {
   const [inputValue, setInputValue] = useState("");
   const [isDark, setIsDark] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const [perPage, setPerPage] = useState<number>(1);
+  const [perPage, setPerPage] = useState<number>(5);
   const [group, setGroup] = useState<string>('');
+  const [inputGroupt, setInputGroup] = useState<string>('');
   const [sorted, setSorted] = useState<boolean>(false);
-  const [search,setSearch] = useState<string>('');
-  console.log('hdghg')
+  const [search, setSearch] = useState<string>('');
+
   useEffect(() => {
     const storedTodos = localStorage.getItem("todo");
+    const storedMode = localStorage.getItem("mode");
+    const storedPerPage = localStorage.getItem("perPage");
     if (storedTodos) {
       const parsedTodos = JSON.parse(storedTodos);
       setFullTodos(parsedTodos);
       setTodos(parsedTodos);
       setCurrentPage(0);
+    }
+
+    let dark = storedMode === "dark";
+    setIsDark(dark);
+    console.log(storedMode, 'storedMode')
+    if (storedPerPage) {
+      setPerPage(Number(storedPerPage));
     }
   }, []);
 
@@ -60,16 +70,18 @@ export default function Todos({ theme }: ToDoProps) {
     setFullTodos(updatedTodos);
     setTodos(updatedTodos);
   };
-  const handleEdited = (id: number , name:string) => {
+
+  const handleEdited = (id: number , name: string) => {
     const edtiedTode = fullTodos.map(todo => {
-      if(todo.id === id) {
-        return {...todo, text: name}
+      if (todo.id === id) {
+        return { ...todo, text: name };
       }
-      return todo
-    })
-    setFullTodos(edtiedTode)
-    setTodos(edtiedTode)
-  }
+      return todo;
+    });
+    setFullTodos(edtiedTode);
+    setTodos(edtiedTode);
+  };
+
   const handleAddClick = () => {
     if (inputValue.trim()) {
       const newTodo: Todo = {
@@ -77,7 +89,7 @@ export default function Todos({ theme }: ToDoProps) {
         id: Math.floor(Math.random() * 1000000),
         time: new Date().toLocaleTimeString(),
         isComplete: false,
-        group: group,
+        group: inputGroupt,
       };
       const updatedTodos = sorted ? [...fullTodos, newTodo] : [newTodo, ...fullTodos];
       setFullTodos(updatedTodos);
@@ -88,20 +100,27 @@ export default function Todos({ theme }: ToDoProps) {
   };
 
   useEffect(() => {
+    let filtered = fullTodos;
+
+    if (group && group !== "all") {
+      filtered = filtered.filter(todo => todo.group === group);
+    }
+
     if (search.trim().length > 0) {
-      const filtered = fullTodos.filter(todo =>
+      filtered = filtered.filter(todo =>
         todo.text.toLowerCase().includes(search.trim().toLowerCase())
       );
-      setTodos(filtered);
-    } else {
-      setTodos(fullTodos);
     }
-    setCurrentPage(0);
-  }, [search, fullTodos]);
 
-  const handleMood = () => {
-    setIsDark(!isDark);
+    setTodos(filtered);
+    setCurrentPage(0);
+  }, [search, group, fullTodos]);
+
+  const handleMood = (event:any) => {
+    localStorage.setItem("mode", event.target.checked ? "dark" : "light");
+    setIsDark(event.target.checked);
   };
+
   const handleRemoveClick = (id: number) => {
     const newTodos = fullTodos.filter((todo) => todo.id !== id);
     const newTotalPages = newTodos.length === 0 ? 0 : Math.ceil(newTodos.length / perPage);
@@ -134,34 +153,17 @@ export default function Todos({ theme }: ToDoProps) {
 
   const handleInputPagination = (e: number) => {
     setPerPage(e);
+    localStorage.setItem("perPage" , JSON.stringify(e));
     setCurrentPage(0);
   };
 
   const handleTodoGroup = (e: string) => {
-    setGroup(e);
+    setInputGroup(e);
   };
-
-  const handleSort = (group: string) => {
-    let filtered = fullTodos;
-
-    if (group && group !== "all") {
-      filtered = filtered.filter(todo => todo.group === group);
-    }
-
-    const sortedByTime = [...filtered].sort((a, b) => {
-      const timeA = new Date(`1970-01-01T${a.time}`).getTime();
-      const timeB = new Date(`1970-01-01T${b.time}`).getTime();
-      return timeB - timeA;
-    });
-
-    setTodos(sortedByTime);
-    setSorted(true);
-    setCurrentPage(0);
-  };
-
 
   return (
     <div className={`${theme}`}>
+
       <div className={`${isDark ? "dark_mood dark" : "light_mood"}`}>
         <label className="inline-flex items-center cursor-pointer">
           <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300 p-4">
@@ -173,13 +175,18 @@ export default function Todos({ theme }: ToDoProps) {
             checked={isDark}
             onChange={handleMood}
           />
-          <div
-            className="relative w-11 h-6  rounded-full peer peer-focus:ring-4  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all bg-green-800 dark:border-gray-600 dark:bg-green-500"
-          ></div>
+          <div className="relative w-11 h-6 rounded-full peer peer-focus:ring-4 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all bg-green-800 dark:border-gray-600 dark:bg-green-500"></div>
         </label>
         <div className="flex justify-center pt-10 min-h-screen">
           <div className="flex flex-col items-center gap-4 w-full px-2">
-            <h1>TODO</h1>
+            <div>
+              <input
+                className="rounded-2xl m-3"
+                placeholder="search todo with name"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
             <div className="flex gap-2 w-full max-w-md">
               <input
                 value={inputValue}
@@ -200,10 +207,6 @@ export default function Todos({ theme }: ToDoProps) {
               <button onClick={handleAddClick} className="border px-4 py-2">
                 Add
               </button>
-            </div>
-            <div>
-              <label>You can search todo with name</label>
-              <input className='rounded-2xl' value={search} onChange={(e) => setSearch(e.target.value)}/>
             </div>
             <ul className="w-full max-w-md">
               {currentPost.length === 0 ? (
@@ -227,7 +230,7 @@ export default function Todos({ theme }: ToDoProps) {
               <button onClick={handlePrev} disabled={currentPage === 0}>
                 Previous
               </button>
-              <span className='bg-transparent'>
+              <span className="bg-transparent">
                 Page {totalPages === 0 ? 0 : currentPage + 1} of {totalPages}
               </span>
               <button onClick={handleNext} disabled={currentPage >= totalPages - 1}>
@@ -237,13 +240,13 @@ export default function Todos({ theme }: ToDoProps) {
             </div>
 
             <div className="flex items-center space-x-4">
-              <label htmlFor="tasksPerPage" className="text-sm font-medium text-gray-700">
+              <label htmlFor="tasksPerPage">
                 todos Per Page:
               </label>
               <select
-                id="tasksPerPage"
                 onChange={(e) => handleInputPagination(Number(e.target.value))}
                 className="px-4 py-2 rounded"
+                value={perPage}
               >
                 <option value="1">1</option>
                 <option value="3">3</option>
@@ -251,12 +254,12 @@ export default function Todos({ theme }: ToDoProps) {
                 <option value="7">7</option>
               </select>
 
-              <label htmlFor="sortByGroup" className="text-sm font-medium text-gray-700">
+              <label htmlFor="sortByGroup">
                 sort by group:
               </label>
               <select
                 id="sortByGroup"
-                onChange={(e) => handleSort(e.target.value)}
+                onChange={(e) => setGroup(e.target.value)}
                 className="px-4 py-2 rounded"
               >
                 <option value="all">All Todos</option>
@@ -266,7 +269,6 @@ export default function Todos({ theme }: ToDoProps) {
                 <option value="shopping">shopping</option>
               </select>
             </div>
-
           </div>
         </div>
       </div>
