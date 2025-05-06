@@ -203,7 +203,7 @@ export default function Todos({ theme }: ToDoProps) {
             </div>
             <div>
               <label>You can search todo with name</label>
-              <input value={search} onChange={(e) => setSearch(e.target.value)}/>
+              <input className='rounded-2xl' value={search} onChange={(e) => setSearch(e.target.value)}/>
             </div>
             <ul className="w-full max-w-md">
               {currentPost.length === 0 ? (
