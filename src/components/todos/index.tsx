@@ -40,7 +40,6 @@ export default function Todos({ theme }: ToDoProps) {
 
     let dark = storedMode === "dark";
     setIsDark(dark);
-    console.log(storedMode, 'storedMode')
     if (storedPerPage) {
       setPerPage(Number(storedPerPage));
     }
